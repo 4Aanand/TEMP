@@ -5,9 +5,48 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script> <!-- optional for icons -->
     <link rel="stylesheet" href="/static/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
-    <div class="container">
+         <nav>
+    <div class="logo"> <i class="fa-solid fa-screwdriver-wrench"></i> &nbsp;Machine Maintainance</div>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Alert</a></li>
+      <li><a href="Maintenance.html">Maintenance</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+   </nav>
+   
+  <header>
+    <div class="content-head"><h1>Welcome to Our Website</h1>
+    <p><b>Here , we take care of your system, maintain your machine health.</b></p></div>
+  </header>
+
+  <h2 class="dashboard"> <i class="fa-solid fa-square-poll-vertical"></i>Dashboard</h2>
+  <div class="container">
+<p class="subtitle">Real-time monitoring and predictive insights for your industrial equipment</p>
+<div class="grid">
+<div class="card">
+<h5>Total Machines</h5>
+<i class="fa-solid fa-gear" style="color: grey;"></i>
+<p>24</p>
+<p>Required immediatie action</p>
+</div>
+<div class="card">
+<h5>Alerts</h5>
+<i class="fa-solid fa-triangle-exclamation" style="color: red;"></i>
+<p>1</p>
+<p>See below for alerts</p>
+</div>
+<div class="card">
+<h5>Cost Saving</h5>
+<i class="fa-solid fa-money-bill-trend-up" style="color: green;"></i>
+<p>$5000</p>
+</div>
+</div>
+</div>
+ <div class="container">
         <h1 class="heading"><span class="icon">🛠</span> Predictive Maintenance Dashboard</h1>
 
         <!-- Machine 1 -->
@@ -20,16 +59,41 @@
         <canvas id="chart2" width="600" height="300"></canvas>
         <div id="status2">Status: Loading...</div>
 
-        <!-- Repair Scheduling Form -->
-        <div class="maintenance">
-            <input type="datetime-local" name="repair_time" required>
-            <button type="submit">Schedule Repair</button>
-        </div>
 
         {% if message %}
             <div class="confirmation">{{ message }}</div>
         {% endif %}
     </div>
+
+      
+    </div>
+</div>
+</div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>About Us</h3>
+        <p>We build simple, responsive, and user-friendly websites.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a><br>
+        <a href="Maintenance.html">Maintenance</a><br>
+        <a href="contact.html">Contact</a>
+        <a href="#">Alert</a>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>Email: info@example.com</p>
+        <p>Phone: +123 456 789</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Code Catalyst | All rights reserved
+    </div>
+  </footer>
+
 
     <script src="/static/dashboard.js"></script>
 </body>
