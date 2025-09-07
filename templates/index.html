@@ -6,24 +6,26 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>🛠 Predictive Maintenance Dashboard</h1>
+<div class="container">
+        <h1 class="heading"><span class="icon">🛠</span> Predictive Maintenance Dashboard</h1>
 
         <!-- Machine 1 -->
-        <h2>Machine Name: Compressor A | ID: MCH-001</h2>
+        <h2 class="sub-heading"><i class="fa-solid fa-arrow-trend-up"></i> Machine Name: Compressor A | ID: MCH-001</h2>
         <canvas id="chart1" width="600" height="300"></canvas>
         <div id="status1">Status: Loading...</div>
 
         <!-- Machine 2 -->
-        <h2>Machine Name: Pump B | ID: MCH-002</h2>
+        <h2 class="sub-heading"><i class="fa-solid fa-arrow-trend-up"></i> Machine Name: Pump B | ID: MCH-002</h2>
         <canvas id="chart2" width="600" height="300"></canvas>
         <div id="status2">Status: Loading...</div>
 
         <!-- Repair Scheduling Form -->
-        <form action="/schedule" method="post">
+        <!-- <form action="/schedule" method="post"> -->
+            <div class="maintenance">
             <input type="datetime-local" name="repair_time" required>
-            <button type="submit">Schedule Repair</button>
-        </form>
+            <button type="submit">Schedule Repair</button></div>
+            
+        <!-- </form> -->
 
         {% if message %}
             <div class="confirmation">{{ message }}</div>
