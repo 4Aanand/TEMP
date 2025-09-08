@@ -12,9 +12,9 @@
     <div class="logo"> <i class="fa-solid fa-screwdriver-wrench"></i> &nbsp;Machine Maintainance</div>
     <ul id="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="#">Alert</a></li>
-      <li><a href="Maintenance.html">Maintenance</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#alert">Alert</a></li>
+      <li><a href="#maintenance">Maintenance</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
    </nav>
    
@@ -23,26 +23,27 @@
     <p><b>Here , we take care of your system, maintain your machine health.</b></p></div>
   </header>
 
+  <div class="main-content">
+  <div class="main-cards">Explore our project</div>
+  <div class="main-cards">Run regular diagnostic on your machine </div>
+  <div class="main-cards">Invest your time and save your money</div>
+</div>
+
   <h2 class="dashboard"> <i class="fa-solid fa-square-poll-vertical"></i>Dashboard</h2>
   <div class="container">
 <p class="subtitle">Real-time monitoring and predictive insights for your industrial equipment</p>
 <div class="grid">
-<div class="card">
+<div class="card" id="card-one">
 <h5>Total Machines</h5>
 <i class="fa-solid fa-gear" style="color: grey;"></i>
-<p>24</p>
+<p>2</p>
 <p>Required immediatie action</p>
 </div>
-<div class="card">
+<div class="card" id="card-two">
 <h5>Alerts</h5>
 <i class="fa-solid fa-triangle-exclamation" style="color: red;"></i>
-<p>1</p>
+<p>0</p>
 <p>See below for alerts</p>
-</div>
-<div class="card">
-<h5>Cost Saving</h5>
-<i class="fa-solid fa-money-bill-trend-up" style="color: green;"></i>
-<p>$5000</p>
 </div>
 </div>
 </div>
@@ -50,31 +51,115 @@
         <h1 class="heading"><span class="icon">🛠</span> Predictive Maintenance Dashboard</h1>
 
         <!-- Machine 1 -->
-        <h2 class="sub-heading">Machine Name: Compressor A | ID: MCH-001</h2>
+        <h2 class="sub-heading"><i class="fa-solid fa-arrow-trend-up"> </i> Machine Name: Compressor A | ID: MCH-001</h2>
         <canvas id="chart1" width="600" height="300"></canvas>
         <div id="status1">Status: Loading...</div>
 
         <!-- Machine 2 -->
-        <h2 class="sub-heading">Machine Name: Pump B | ID: MCH-002</h2>
+        <h2 class="sub-heading"> <i class="fa-solid fa-arrow-trend-up"></i> Machine Name: Pump B | ID: MCH-002</h2>
         <canvas id="chart2" width="600" height="300"></canvas>
         <div id="status2">Status: Loading...</div>
 
-
-        {% if message %}
+<div id="alert">
+     {% if message %}
             <div class="confirmation">{{ message }}</div>
         {% endif %}
+</div>
     </div>
 
       
     </div>
 </div>
 </div>
+<div id="maintenance"class="maintenance-scheduler">
+  <h2>Check Up Before Failure</h2>
+
+<form id="scheduleForm" method="POST" action="/scheduled">
+    <div class="form-group">
+      <label for="machineName">Machine Name</label>
+      <input type="text" id="machineName" name="machineName" placeholder="e.g. Compressor Unit A">
+    </div>
+
+    <div class="form-group">
+      <label for="machineId">Machine ID</label>
+      <input type="text" id="machineId" name="machineId" placeholder="e.g. MCH-1023">
+    </div>
+
+    <div class="form-group">
+      <label for="scheduleDate">Schedule Date</label>
+      <input type="date" id="scheduleDate" name="scheduleDate">
+    </div>
+
+    <button type="submit">Schedule</button>
+</form>
+
+
+
+  <div class="email-section">
+    <h3>Send Maintenance Details</h3>
+<form id="emailForm" method="POST" action="/send-email">
+      <div class="form-group">
+        <label for="email">Repair Company Email</label>
+        <input type="email" id="email" name="email" placeholder="e.g. support@repairco.com">
+      </div>
+      <button type="submit">Send Email</button>
+    </form>
+  </div>
+</div>
+
+
+ <div id="contact" class="contact-container">
+    <div class="form">
+      <div class="contact-info">
+        <h3 class="title">Let's get in touch</h3>
+        <p class="text">Connet with us in our wonderful journey. Feel free to share you thoughts , we will appreciate it &#127882; </p>
+        <div class="info">
+          <div class="information">
+            <p><i class="fa-solid fa-location-dot"></i><br>Deen Dayal Upadhyaya, Gorakhpur</p>
+            <p><i class="fa-solid fa-envelope"></i><br>sneha21030@gmail.com </p>
+          </div>
+
+          <div class="social-media">
+            <p>Connect with us</p>
+            <div class="social-icon">
+                <div class="service">24/7 on your service</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <form
+         action=""
+         method="POST">
+          <h3 class="title">Contact Us</h3>
+          <div class="input-container">
+            <input type="text" name="name" class="input" required/>
+            <label for="">Username</label>
+            <span>Username</span>
+          </div>
+          <div class="input-container">
+            <input type="email" name="email" class="input" required/>
+            <label for="">Email</label>
+            <span>Email</span>
+          </div>
+          <div class="input-container textarea">
+            <textarea name="message" class="input"></textarea>
+            <label for="">Message</label>
+            <span>Message</span>
+          </div>
+          <input type="submit" value="Send" class="btn"/>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <footer>
     <div class="footer-container">
       <div class="footer-section">
         <h3>About Us</h3>
-        <p>We build simple, responsive, and user-friendly websites.</p>
+        <p>We do machine maintenance. Keeping Machines Moving, So You Don’t Stop.</p>
       </div>
       <div class="footer-section">
         <h3>Quick Links</h3>

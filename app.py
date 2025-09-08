@@ -1,7 +1,12 @@
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request,redirect
+
 import pickle
 from sensor import generate_sensor_data
 from notifier import send_sms, send_email
+import smtplib
+from email.mime.text import MIMEText
+
+
 
 app = Flask(__name__)
 model = pickle.load(open('model.pkl', 'rb'))
@@ -9,6 +14,7 @@ model = pickle.load(open('model.pkl', 'rb'))
 @app.route('/')
 def index():
     return render_template('index.html')
+
 
 @app.route('/data')
 def data():
@@ -40,6 +46,50 @@ def schedule():
     repair_time = request.form.get('repair_time')
     print(f"Repair scheduled for: {repair_time}")
     return render_template('index.html', message=f"Repair scheduled for: {repair_time}")
+
+scheduled_data = {}
+@app.route('/scheduled', methods=['POST'])
+def store_schedule():
+    global scheduled_data
+    scheduled_data = {
+        'machine_name': request.form['machineName'],
+        'machine_id': request.form['machineId'],
+        'schedule_date': request.form['scheduleDate']
+    }
+    return redirect('/')
+
+@app.route('/send-email', methods=['POST'])
+def send_email_route():
+    recipient = request.form['email']
+    subject = "Maintenance Scheduled for Your Machine"
+    body = f"""
+    Dear Repair Team,
+
+    A maintenance check has been scheduled for the following machine:
+
+    Machine Name: {scheduled_data.get('machine_name')}
+    Machine ID: {scheduled_data.get('machine_id')}
+    Scheduled Date: {scheduled_data.get('schedule_date')}
+Please confirm availability or reach out for rescheduling.
+
+    Regards,
+    Predictive Maintenance System
+    """
+
+    msg = MIMEText(body)
+    msg['Subject'] = subject
+    msg['From'] = 'aanand6306677603@gmail.com'  # Replace with your sender email
+    msg['To'] = recipient
+
+    try:
+        with smtplib.SMTP('smtp.gmail.com', 587) as server:
+            server.starttls()
+            server.login('aanand6306677603@gmail.com', 'your-app-password')  # Use app password if Gmail
+            server.send_message(msg)
+        return "Email sent successfully!"
+    except Exception as e:
+        return f"Failed to send email: {e}"
+
 
 if __name__ == '__main__':
     app.run(debug=True)
