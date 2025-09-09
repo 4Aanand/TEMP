@@ -29,7 +29,7 @@
   <div class="main-cards">Invest your time and save your money</div>
 </div>
 
-  <h2 class="dashboard"> <i class="fa-solid fa-square-poll-vertical"></i>Dashboard</h2>
+<h2 class="dashboard"> <i class="fa-solid fa-square-poll-vertical"></i>Dashboard</h2>
   <div class="container">
 <p class="subtitle">Real-time monitoring and predictive insights for your industrial equipment</p>
 <div class="grid">
@@ -71,10 +71,13 @@
     </div>
 </div>
 </div>
+<hr class="break">
 <div id="maintenance"class="maintenance-scheduler">
-  <h2>Check Up Before Failure</h2>
 
+     <h2>Check Up Before Failure</h2>
+</div>
 <form id="scheduleForm" method="POST" action="/scheduled">
+  <div class="form-container">
     <div class="form-group">
       <label for="machineName">Machine Name</label>
       <input type="text" id="machineName" name="machineName" placeholder="e.g. Compressor Unit A">
@@ -91,22 +94,23 @@
     </div>
 
     <button type="submit">Schedule</button>
+    </div>
 </form>
 
 
-
   <div class="email-section">
-    <h3>Send Maintenance Details</h3>
+    <h2>Send Maintenance Details...</h2>
+    <div class="main-repair">
 <form id="emailForm" method="POST" action="/send-email">
       <div class="form-group">
-        <label for="email">Repair Company Email</label>
+        <label class="repair-mail" for="email">Repair Company Email</label>
         <input type="email" id="email" name="email" placeholder="e.g. support@repairco.com">
       </div>
-      <button type="submit">Send Email</button>
+      <button type="submit" class="repair-btn">Send Email</button>
     </form>
   </div>
 </div>
-
+</div>
 
  <div id="contact" class="contact-container">
     <div class="form">

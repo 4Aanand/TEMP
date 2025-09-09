@@ -10,10 +10,6 @@ body {
       box-sizing: border-box;
     }
 
-    /* body {
-      font-family: Arial, sans-serif;
-    } */
-
     nav {
         position: sticky;
         top: 0;
@@ -65,7 +61,8 @@ body {
       height: 50vh;
       color: #fff;
       text-align: center;
-      background: url(/images/Machine.jpg);
+      /* background: url(/images/Machine.jpg); */
+        background: url( https://images.unsplash.com/photo-1568952433726-3896e3881c65?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&dl=robynne-o-HOrhCnQsxnQ-unsplash.jpg);
       background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -735,7 +732,111 @@ margin-top: 0.5rem;
     transform: scale(1.1);
 
 }
+.maintenance-scheduler h2{ 
+  color: #042e88;
+  text-align: center;
+}
 
+.form-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-group{
+  margin:20px;
+}
+
+/* ScheduleForm.css */
+.form-container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+background: linear-gradient(-135deg, rgb(152, 142, 205), rgb(168, 197, 211));
+ 
+  border-radius: 12px;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #2575c5;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #000000;
+  transition: box-shadow 0.3s ease;
+}
+
+.sticker-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+
+.mechanic-sticker {
+  width: clamp(60px, 15vw, 120px);
+  height: auto;
+  transition: transform 0.3s ease;
+  margin-right: 1rem;
+}
+
+.mechanic-sticker:hover {
+  transform: scale(1.1) rotate(360deg);
+}
+
+.break{
+  border: none;
+  height: 4px;
+  width: 0;
+  background: linear-gradient(to right, #6a89cc, #f7d794);
+  animation: slideIn 1s forwards;
+  margin: 2rem auto;
+  border-radius: 2px;
+}
+
+@keyframes slideIn {
+  to {
+    width: 100%;
+  }
+}
+
+.email-section h2{
+ color:#042e88;
+ text-align: center;
+}
+
+.repair-mail{
+  font-size: 20px;
+  width: 60vw;
+  color: #005fa3;
+   margin-bottom: 2rem;
+ font-family: 'Times New Roman', Times, serif;
+}
+
+.repair-btn{
+  margin-left: 1.5rem;
+}
+
+#email {
+  display: inline-block;
+  width: 60vw !important; /* or whatever fits your layout */
+}
 @media (max-width: 768px) {
  .form {
     grid-template-columns: 1fr;
