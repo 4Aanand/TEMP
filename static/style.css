@@ -754,6 +754,7 @@ margin-top: 0.5rem;
   margin: 40px auto;
   padding: 20px;
 background: linear-gradient(-135deg, rgb(152, 142, 205), rgb(168, 197, 211));
+ box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 8px 20px rgba(0, 0, 0, 0.9);
  
   border-radius: 12px;
   color: #fff;
